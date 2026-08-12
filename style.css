@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #1b1b1b 0%, #090909 45%, #000 100%);
+    color: hwb(0 93% 7%);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 35%),
+        radial-gradient(circle at 80% 40%, rgba(255,255,255,.03), transparent 35%),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,.03), transparent 40%);
+
+    animation: mist 18s ease-in-out infinite alternate;
+
+    pointer-events: none;
+    z-index: -3;
+}
+
+/* Vinheta */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(circle, transparent 45%, rgba(0,0,0,.75) 100%);
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes mist {
+    from {
+        transform: translateX(-40px) translateY(-20px);
+    }
+
+    to {
+        transform: translateX(40px) translateY(20px);
+    }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    text-align: center;
+    padding: 28px;
+
+    backdrop-filter: blur(12px);
+
+    background: rgba(8,8,8,.75);
+
+    border-bottom: 1px solid #222;
+}
+
+nav a {
+    color: #d7d7d7;
+    text-decoration: none;
+    margin: 0 18px;
+
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    transition: .4s;
+}
+
+nav a:hover {
+    color: white;
+
+    letter-spacing: 6px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 72px;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: 90px auto 35px;
+
+    line-height: 1;
+
+    animation: title 2s ease;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    margin: 80px 0 30px;
+
+    animation: title 2s ease;
+}
+
+@keyframes title {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+p {
+    max-width: 760px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+    line-height: 1.95;
+
+    color: #cfcfcf;
+
+    font-size: 18px;
+
+    animation: fade 2.5s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+img {
+    display: block;
+
+    width: 700px;
+
+    max-width: 90%;
+
+    margin: 55px auto;
+
+    border-radius: 6px;
+
+    transition: .8s;
+
+    box-shadow: 0 0 45px rgba(255,255,255,.05);
+}
+
+img:hover {
+    transform: scale(1.025);
+
+    box-shadow: 0 0 70px rgba(255,255,255,.12);
+}
+
+video {
+    display: block;
+
+    width: 720px;
+
+    max-width: 80%;
+
+    margin: 60px auto;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 45px rgba(255,255,255,.05);
+}
+
+hr {
+    width: 86%;
+
+    margin: 80px auto;
+
+    border: none;
+
+    border-top: 1px solid #252525;
+}
+
+strong {
+    color: white;
+}
+
+em {
+    color: #ececec;
+}
+
+/* CINZAS */
+
+.ashes {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.ashes span {
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    background: rgba(255,255,255,.8);
+
+    border-radius: 50%;
+
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-120px) translateX(0) rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateY(120vh) translateX(80px) rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+.ashes span:nth-child(1) {
+    left: 8%;
+    animation-duration: 11s;
+    animation-delay: 0s;
+}
+
+.ashes span:nth-child(2) {
+    left: 18%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.ashes span:nth-child(3) {
+    left: 29%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+.ashes span:nth-child(4) {
+    left: 42%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.ashes span:nth-child(5) {
+    left: 56%;
+    animation-duration: 15s;
+    animation-delay: 4s;
+}
+
+.ashes span:nth-child(6) {
+    left: 69%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+.ashes span:nth-child(7) {
+    left: 81%;
+    animation-duration: 12s;
+    animation-delay: 6s;
+}
+
+.ashes span:nth-child(8) {
+    left: 92%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 20px 10px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    nav a:hover {
+        letter-spacing: 3px;
+    }
+
+    h1 {
+        font-size: 52px;
+        margin: 70px 20px 30px;
+    }
+
+    h2 {
+        font-size: 36px;
+        margin: 65px 20px 25px;
+    }
+
+    p {
+        max-width: 90%;
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 700px;
+        max-width: 90%;
+        margin: 45px auto;
+    }
+
+    video {
+        width: 720px;
+        max-width: 90%;
+        margin: 50px auto;
+    }
+
+    hr {
+        width: 86%;
+        margin: 65px auto;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    nav {
+        padding: 18px 5px;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    nav a:hover {
+        letter-spacing: 2px;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin: 60px 15px 25px;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin: 55px 15px 25px;
+    }
+
+    p {
+        max-width: 88%;
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 35px;
+    }
+
+    img {
+        width: 700px;
+        max-width: 90%;
+        margin: 40px auto;
+    }
+
+    video {
+        width: 720px;
+        max-width: 90%;
+        margin: 45px auto;
+    }
+
+    hr {
+        width: 86%;
+        margin: 55px auto;
+    }
+     
+}   iframe {
+    display: block;
+    width: 560px;
+    max-width: 90%;
+    height: 315px;
+    margin: 60px auto;
+    border-radius: 10px;
+}
+
